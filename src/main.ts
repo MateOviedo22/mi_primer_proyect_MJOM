@@ -9,11 +9,14 @@ async function bootstrap() {
     .setTitle('Mi primer proyecto NestJS')
     .setDescription('API CRUD de usuarios')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
+
   SwaggerModule.setup('api', app, document);
 
   await app.listen(process.env.PORT ?? 3000);
 }
+
 bootstrap();
